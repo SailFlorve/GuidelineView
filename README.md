@@ -18,7 +18,7 @@ allprojects {
 在模块的build.gradle中导入：
 ```
 dependencies {
-	implementation 'com.github.SailFlorve:GuidelineView:VERSION'
+	implementation 'com.github.SailFlorve:GuidelineView:1.0'
 }
 ``` 
 
