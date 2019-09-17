@@ -1,5 +1,6 @@
 # GuidelineView
-[![](https://jitpack.io/v/SailFlorve/GuidelineView.svg)](https://jitpack.io/#SailFlorve/GuidelineView)<br>
+[![](https://jitpack.io/v/SailFlorve/GuidelineView.svg)](https://jitpack.io/#SailFlorve/GuidelineView)  
+
 Android显示功能引导的自定义View。可以自动高亮View区域，也可以指定高亮区域；引导内容显示支持layout和View对象方式，并指定view设置点击事件；支持设置引导内容相对高亮区域的显示方向；可以直接在onCreate()中调用。
 
 ## 图片示例
