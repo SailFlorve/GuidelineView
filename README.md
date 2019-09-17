@@ -1,5 +1,6 @@
 # GuidelineView
-Android显示功能引导的自定义View。可以自动高亮View区域，也可以指定高亮区域；引导内容显示支持layout和View对象方式，并设置点击事件；支持设置引导内容相对高亮区域的显示方向；可以直接在onCreate()中调用。
+[![](https://jitpack.io/v/SailFlorve/GuidelineView.svg)](https://jitpack.io/#SailFlorve/GuidelineView)<br>
+Android显示功能引导的自定义View。可以自动高亮View区域，也可以指定高亮区域；引导内容显示支持layout和View对象方式，并指定view设置点击事件；支持设置引导内容相对高亮区域的显示方向；可以直接在onCreate()中调用。
 
 ## 图片示例
 ![sample](https://github.com/SailFlorve/GuidelineView/blob/master/sample.gif?raw=true)
@@ -16,7 +17,7 @@ allprojects {
 在模块的build.gradle中导入：
 ```
 dependencies {
-	implementation 'com.github.SailFlorve:GuidelineView:1.0'
+	implementation 'com.github.SailFlorve:GuidelineView:VERSION'
 }
 ``` 
 
@@ -65,7 +66,7 @@ private TextView mTextView;
 Guideline fabGl = Guideline.builder()
         .setHighlight(mFab) //设置被高亮的区域
         .setGuideView(guideText) //引导内容
-        .setDirection(Direction.LEFT) //引导内容所在的方向：左
+        .setDirection(Direction.LEFT) //引导内容所在的方向为左方
         .setGuideOffsetX(-ViewUtil.dip2px(this, 15)) //引导内容在X轴偏移
         .setGuideScale(1.5f) //引导内容的缩放
         .build();
@@ -73,7 +74,7 @@ Guideline fabGl = Guideline.builder()
 Guideline textGl = Guideline.builder()
         .setHighlight(mTextView)
         .setGuideView(R.layout.guide)
-        .setDirection(Direction.UP & Direction.RIGHT) //引导内容所在的方向：上
+        .setDirection(Direction.UP & Direction.RIGHT) //引导内容所在的方向为右上方
         .setShapeType(Shape.RECT) //高亮区域的形状
         .setHighlightScale(1.2f) //高亮区域的缩放
         .build();
@@ -87,7 +88,7 @@ Guideline toolbarGl = Guideline.builder()
         .build();
         
 Guideline customGl = Guideline.builder()
-        .setHighlight(new Circle(600, 1200, 200))
+        .setHighlight(new Circle(600, 1200, 200)) //直接创建一个圆作为高亮区域
         .setGuideView(R.layout.guide)
         .setDirection(Direction.LEFT & Direction.UP)
         .build();
@@ -96,7 +97,11 @@ Guideline customGl = Guideline.builder()
 #### 创建GuidelineView，设置回调，添加Guideline，并开始显示引导内容
 ```
 GuidelineView.create(this)
-        .add(fabGl).add(textGl).add(toolbarGl).add(customGl)
+	//Guideline按添加顺序显示
+        .add(fabGl)
+	.add(textGl)
+	.add(toolbarGl)
+	.add(customGl)
         .setNextButtonId(R.id.iv) //设置点击该View才显示下一个
         //引导显示回调
         .setGuidelineCallback(new GuidelineView.GuidelineCallback() {
@@ -149,6 +154,7 @@ GuidelineView.create(this)
 | setNextButtonId(@IdRes int)                | 设置点击按钮进行下一条引导的View id，如果不设置，点击任意处显示下一条 |
 
 #### Shape及其实现类(省略getter和setter)
+Shape类是高亮区域的实体类。<br>
 
 | 方法/属性 | 说明 |
 | ------------- | ---------------- |
