@@ -133,10 +133,8 @@ GuidelineView.create(this)
 #### Guideline.Builder
 | 方法名                    | 说明                 | 返回类型| 
 | ---------------------------- | ---------------------- | ---------------------- |
-| setHighlight(Shape)<br>setHighlight(View) | 使用Shape类直接指定高亮区域，或指定被高亮的View，若均被设置则选择Shape | 
-GuideArea.Builder |
-| setGuideView(@LayoutRes int) <br> setGuideView(View) | 使用View或layout作为引导内容，若均被设置则选择View | 
-GuideConfig.Builder |
+| setHighlight(Shape)<br>setHighlight(View) | 使用Shape类直接指定高亮区域，或指定被高亮的View，若均被设置则选择Shape | GuideArea.Builder |
+| setGuideView(@LayoutRes int) <br> setGuideView(View) | 使用View或layout作为引导内容，若均被设置则选择View | GuideConfig.Builder |
 | setDirection(int)      | 引导内容相对于高亮区域的方向 | GuideConfig.Builder |
 | setGuideOffsetX(float) | 引导内容在x轴的偏移量 |GuideConfig.Builder |
 | setGuideOffsetY(float) | 引导内容在y轴的偏移量 |GuideConfig.Builder |
@@ -192,12 +190,9 @@ GuideConfig.Builder |
 | dismiss()                                  | 取消显示引导                                                    |
 | setNextButtonId(@IdRes int)                | 设置点击按钮进行下一条引导的View id，如果不设置，点击任意处显示下一条 |
 
-<<<<<<< HEAD
+
 #### Shape及其实现类
-=======
-#### Shape及其实现类(省略getter和setter)
 Shape类是高亮区域的实体类。<br>
->>>>>>> origin/master
 
 | 方法/属性 | 说明 |
 | ------------- | ---------------- |
