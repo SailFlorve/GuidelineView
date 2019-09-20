@@ -64,7 +64,7 @@ private TextView mTextView;
 ```
 使用Guideline.builder().build()创建Guideline对象
 ```
-Guideline fabGl = Guideline.builder()
+Guideline fabGl = new Guideline.Builder()
         .setHighlight(mFab) //设置被高亮的区域
         .setGuideView(guideText) //引导内容
         .setDirection(Direction.LEFT) //引导内容所在的方向为左方
@@ -72,7 +72,7 @@ Guideline fabGl = Guideline.builder()
         .setGuideScale(1.5f) //引导内容的缩放
         .build();
 
-Guideline textGl = Guideline.builder()
+Guideline textGl = new Guideline.Builder()
         .setHighlight(mTextView)
         .setGuideView(R.layout.guide)
         .setDirection(Direction.UP & Direction.RIGHT) //引导内容所在的方向为右上方
@@ -80,7 +80,7 @@ Guideline textGl = Guideline.builder()
         .setHighlightScale(1.2f) //高亮区域的缩放
         .build();
 
-Guideline toolbarGl = Guideline.builder()
+Guideline toolbarGl = new Guideline.Builder()
         .setHighlight(mToolbar)
         .setGuideView(R.layout.guide)
         .setDirection(Direction.DOWN)
@@ -88,8 +88,13 @@ Guideline toolbarGl = Guideline.builder()
         .setHighlightScale(0.95f)
         .build();
         
+<<<<<<< HEAD
+Guideline customGl = new Guideline.Builder()
+        .setHighlight(new Circle(600, 1200, 200))
+=======
 Guideline customGl = Guideline.builder()
         .setHighlight(new Circle(600, 1200, 200)) //直接创建一个圆作为高亮区域
+>>>>>>> origin/master
         .setGuideView(R.layout.guide)
         .setDirection(Direction.LEFT & Direction.UP)
         .build();
@@ -124,23 +129,56 @@ GuidelineView.create(this)
 ```
 
 ## 类说明
+
+#### Guideline.Builder
+| 方法名                    | 说明                 | 返回类型| 
+| ---------------------------- | ---------------------- | ---------------------- |
+| setHighlight(Shape)<br>setHighlight(View) | 使用Shape类直接指定高亮区域，或指定被高亮的View，若均被设置则选择Shape | 
+GuideArea.Builder |
+| setGuideView(@LayoutRes int) <br> setGuideView(View) | 使用View或layout作为引导内容，若均被设置则选择View | 
+GuideConfig.Builder |
+| setDirection(int)      | 引导内容相对于高亮区域的方向 | GuideConfig.Builder |
+| setGuideOffsetX(float) | 引导内容在x轴的偏移量 |GuideConfig.Builder |
+| setGuideOffsetY(float) | 引导内容在y轴的偏移量 |GuideConfig.Builder |
+| setGuideScale(float)     | 引导内容的缩放        |GuideConfig.Builder |
+| setHighlightScale(float) | 高亮区域的缩放        |GuideConfig.Builder |
+| setShapeType(int)        | 高亮形状(圆角矩形或者圆形) |GuideConfig.Builder |
+| build()        | 创建Guideline对象 |Guideline |
+
+
 #### Guideline
 | 方法名 | 说明 |
 | --------- | ----------------------- |
-| builder() | 直接得到一个Builder实例 |
+| setHighlightArea(Guideline.HighlightArea) | 设置高亮区域 |
+| setGuideArea(Guideline.GuideArea) | 设置提示文字 |
+| setConfig(Guideline.Config) | 设置Config |
+| getters... |                                   |
 
-#### Builder
-| 方法名                    | 说明                 |
-| ---------------------------- | ---------------------- |
-| setHighlight(Shape)<br>setHighlight(View) | 使用Shape类直接指定高亮区域，或指定被高亮的View，若均被设置则选择Shape |
-| setGuideView(@LayoutRes int) <br> setGuideView(View) | 使用View或layout作为引导内容，若均被设置则选择View |
+
+
+#### Guideline.HighlightArea
+| 方法名 | 说明 |
+| --------- | ----------------------- |
+| setView(View) | 设置高亮区域为一个View |
+| setShape(Shape) | 使用Shape类指定高亮区域的坐标 |
+
+#### Guideline.GuideArea
+| 方法名 | 说明 |
+| --------- | ----------------------- |
+| setView(View) | 设置提示内容为一个View |
+| setShape(@layoutRes int) | 设置提示内容为一个layout |
+
+
+#### Guideline.Config
+| 方法名 | 说明 |
+| --------- | ----------------------- |
 | setDirection(int)      | 引导内容相对于高亮区域的方向 |
 | setGuideOffsetX(float) | 引导内容在x轴的偏移量 |
 | setGuideOffsetY(float) | 引导内容在y轴的偏移量 |
 | setGuideScale(float)     | 引导内容的缩放        |
 | setHighlightScale(float) | 高亮区域的缩放        |
 | setShapeType(int)        | 高亮形状(圆角矩形或者圆形) |
-| build()        | 创建Guideline对象 |
+
 
 #### GuidelineView
 | 方法名                                  | 说明                                                                |
@@ -154,8 +192,12 @@ GuidelineView.create(this)
 | dismiss()                                  | 取消显示引导                                                    |
 | setNextButtonId(@IdRes int)                | 设置点击按钮进行下一条引导的View id，如果不设置，点击任意处显示下一条 |
 
+<<<<<<< HEAD
+#### Shape及其实现类
+=======
 #### Shape及其实现类(省略getter和setter)
 Shape类是高亮区域的实体类。<br>
+>>>>>>> origin/master
 
 | 方法/属性 | 说明 |
 | ------------- | ---------------- |
