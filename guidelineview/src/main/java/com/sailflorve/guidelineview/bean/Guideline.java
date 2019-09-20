@@ -48,6 +48,28 @@ public class Guideline {
         this.config = config;
     }
 
+    public static class Builder {
+        HighlightArea area;
+        Guideline guideline;
+
+        public Builder() {
+            area = new HighlightArea();
+            guideline = new Guideline();
+        }
+
+        public GuideArea.Builder setHighlight(Shape shape) {
+            area.shape = shape;
+            guideline.setHighlightArea(area);
+            return new GuideArea.Builder(guideline);
+        }
+
+        public GuideArea.Builder setHighlight(View view) {
+            area.view = view;
+            guideline.setHighlightArea(area);
+            return new GuideArea.Builder(guideline);
+        }
+    }
+
     public static class GuideArea {
 
         private int mId;
@@ -212,29 +234,29 @@ public class Guideline {
 
     public static class HighlightArea {
 
-        private Shape mShape;
-        private View mView;
+        private Shape shape;
+        private View view;
 
         private HighlightArea() {
         }
 
         public Shape getShape() {
-            return mShape;
+            return shape;
         }
 
         public void setShape(Shape shape) {
-            mShape = shape;
+            this.shape = shape;
         }
 
         public View getView() {
-            return mView;
+            return view;
         }
 
         public void setView(View view) {
-            this.mView = view;
+            this.view = view;
         }
 
-        public static class Builder {
+        private static class Builder {
             HighlightArea area;
             Guideline guideline;
 
@@ -244,13 +266,13 @@ public class Guideline {
             }
 
             public GuideArea.Builder setHighlight(Shape shape) {
-                area.mShape = shape;
+                area.shape = shape;
                 guideline.setHighlightArea(area);
                 return new GuideArea.Builder(guideline);
             }
 
             public GuideArea.Builder setHighlight(View view) {
-                area.mView = view;
+                area.view = view;
                 guideline.setHighlightArea(area);
                 return new GuideArea.Builder(guideline);
             }
