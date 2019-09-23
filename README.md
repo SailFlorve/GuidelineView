@@ -88,13 +88,11 @@ Guideline toolbarGl = new Guideline.Builder()
         .setHighlightScale(0.95f)
         .build();
         
-<<<<<<< HEAD
 Guideline customGl = new Guideline.Builder()
         .setHighlight(new Circle(600, 1200, 200))
-=======
+	
 Guideline customGl = Guideline.builder()
         .setHighlight(new Circle(600, 1200, 200)) //直接创建一个圆作为高亮区域
->>>>>>> origin/master
         .setGuideView(R.layout.guide)
         .setDirection(Direction.LEFT & Direction.UP)
         .build();
