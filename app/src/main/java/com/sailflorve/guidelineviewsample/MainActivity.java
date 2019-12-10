@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         guideText.setText("Hello!");
         guideText.setTextColor(Color.WHITE);
 
-        Guideline fabGl = new Guideline.Builder()
+        Guideline fabGl = Guideline.newBuilder()
                 .setHighlight(mFab) //设置被高亮的区域
                 .setGuideView(guideText) //引导内容
                 .setDirection(Direction.LEFT) //引导内容所在的方向：左
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 .setGuideScale(1.5f) //引导内容的缩放
                 .build();
 
-        Guideline textGl = new Guideline.Builder()
+        Guideline textGl = Guideline.newBuilder()
                 .setHighlight(mTextView)
                 .setGuideView(R.layout.guide)
                 .setDirection(Direction.UP & Direction.RIGHT) //引导内容所在的方向：右上
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 .setHighlightScale(1.2f) //高亮区域的缩放
                 .build();
 
-        Guideline toolbarGl = new Guideline.Builder()
+        Guideline toolbarGl = Guideline.newBuilder()
                 .setHighlight(mToolbar)
                 .setGuideView(R.layout.guide)
                 .setDirection(Direction.DOWN)
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 .setHighlightScale(0.95f)
                 .build();
 
-        Guideline customGl = new Guideline.Builder()
+        Guideline customGl = Guideline.newBuilder()
                 .setHighlight(new Circle(600, 1200, 200))
                 .setGuideView(R.layout.guide)
                 .setDirection(Direction.LEFT & Direction.UP)

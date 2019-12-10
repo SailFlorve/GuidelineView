@@ -16,10 +16,13 @@ public class Guideline {
     private GuideArea guideArea;
     private Config config;
 
+    /**
+     * use {@link Guideline#newBuilder()}
+     */
     private Guideline() {
     }
 
-    public static HighlightArea.Builder builder() {
+    public static HighlightArea.Builder newBuilder() {
         Guideline guideline = new Guideline();
         return new HighlightArea.Builder(guideline);
     }
@@ -52,7 +55,7 @@ public class Guideline {
         HighlightArea area;
         Guideline guideline;
 
-        public Builder() {
+        private Builder() {
             area = new HighlightArea();
             guideline = new Guideline();
         }
@@ -256,11 +259,11 @@ public class Guideline {
             this.view = view;
         }
 
-        private static class Builder {
+        public static class Builder {
             HighlightArea area;
             Guideline guideline;
 
-            Builder(Guideline guideline) {
+            private Builder(Guideline guideline) {
                 area = new HighlightArea();
                 this.guideline = guideline;
             }
